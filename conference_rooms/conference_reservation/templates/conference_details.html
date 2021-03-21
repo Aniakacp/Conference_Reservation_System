@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Room details</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h3> Conference Room {{ conference_room.name }} </h3>
+    Capacity: {{ conference_room.capacity }} <br>
+    Projector: {{ conference_room.projector }}<br>
+    Bookings:
+    <ul>    {% for date in reservation_dates %}
+                        <li>{{ date.date }} - {{ date.comment }}</li>
+            {% endfor %}
+    </ul>
+    <br>
+    <input type="button" value="Edit" onclick="location.href='/room/modify/{{conference_room.id}}/'">
+    <input type="button" value="Delete" onclick="location.href='/room/delete/{{conference_room.id}}/'">
+    <input type="button" value="Reserve" onclick="location.href='/room/reserve/{{conference_room.id}}/'">
+</form>
+<br>
+<a href="/conference-rooms/">Back</a>
+</body>
+</html>

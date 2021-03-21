@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Room</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h3>{{ conference_room.name }} Room Reservation </h3>
+    Event: <input type="text" name="comment"><br>
+    When: <input type="date" name="reservation_date"><br>
+    <br>
+    <input type="submit" value="Reserve" onclick="location.href='conference_list'">
+</form>
+<br>
+<b>Reserved dates:<br></b>
+<ul>
+{% for reservation_room in reservation %}
+    <li>{{reservation_room.date}}</li>
+{% endfor %}
+</ul>
+<br>
+{{ info }}
+</body>
+</html>

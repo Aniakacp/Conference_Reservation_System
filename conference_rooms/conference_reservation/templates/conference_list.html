@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Room List</title>
+</head>
+<h3>Conference Room List</h3>
+
+<table border="true">
+<tr><th>Conference Room</th><th></th></tr>
+{% for room in conference_rooms %}
+    <tr><td><a href="/room/{{ room.id }}/">{{ room.name }}</a> </td>
+        <td>
+            {% for reservation in today_booked_rooms %}
+                {%if room.name == reservation %}
+                    Booked today
+                {% endif %}
+            {% endfor %}
+        </td></tr>
+{% endfor %}
+</table>
+<br>
+<form method="POST">
+    {% csrf_token %}
+</form>
+<a href="/conference-rooms/">Back</a>
+</body>
+</html>

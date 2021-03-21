@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Room Edit</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    Room name: <input type="text" name="room_name" placeholder="{{ conference_room.name }}"> <br>
+    Room capacity: <input type="number" name="capacity" placeholder="{{ conference_room.capacity }}"><br>
+    <label for="projector">Projector</label><input type="checkbox" name="projector"
+        {% if conference_room.projector %} checked {% endif %}><br>
+    <br>
+    <input type="submit" value="Update" onclick="location.href='/conference-list/'">
+<br>
+<br>
+{{ info }}
+</form>
+</body>
+</html>

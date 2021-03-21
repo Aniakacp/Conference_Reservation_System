@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Conference Room</title>
+</head>
+<body>
+<h3>Search Conference Room</h3>
+<form method="POST">
+    {% csrf_token %}
+    Conference Room Name: <input type="text" name="room_name"> <br>
+    Min capacity: <input type="number" name="capacity"><br>
+    <label for="projector">Projector</label><input type="checkbox" name="projector"><br>
+    Date: <input type="date" name="reservation_date"><br>
+    <br>
+    <input type="submit" value="Search">
+    <br>
+    <br>
+    {{ info }}
+</form>
+</body>
+</html>

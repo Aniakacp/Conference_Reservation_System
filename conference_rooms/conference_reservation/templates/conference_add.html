@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Conference Room</title>
+</head>
+<h3>Add Conference Room</h3>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    Room name: <input type="text" name="room_name"> <br>
+    Room capacity: <input type="number" name="capacity"><br>
+    <label for="projector">Projector</label><input type="checkbox" name="projector"><br>
+    <br>
+    <input type="submit" value="Add">
+</form>
+{{ info }}
+</body>
+</html>

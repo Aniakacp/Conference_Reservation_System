@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms considering criteria</title>
+</head>
+<body>
+Available Conference Rooms:
+<ul>
+{% for room in  free_rooms%}
+    <li><a href="/room/{{ room.id }}/">{{ room.name }} </a> {{ room.capacity }}</li>
+{% endfor %}
+</ul>
+{{ info }}
+</body>
+</html>
